@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+
+        <TextView
+            android:text="@string/title_Num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_Hands_num"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:text="@string/title_declarer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_declarer"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+
+        <TextView
+            android:text="@string/title_contract"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_contract"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"
+            />
+        <TextView
+            android:text="@string/title_result"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_result"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+        <TextView
+            android:text="@string/title_NS"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_ns_score"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+        <TextView
+            android:text="@string/title_EW"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_ew_score"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+    </LinearLayout>
+
+    <ImageView
+        android:contentDescription="@string/title_contract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/split_separator"
+        android:id="@+id/imageView_seperator"/>
+
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/result_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

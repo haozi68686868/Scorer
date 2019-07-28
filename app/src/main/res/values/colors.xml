@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryLight">#7281CE</color>
+    <color name="colorAccent">#009688</color>
+    <color name="divider_color">#FF4081</color>
+    <color name="item_background">#EEEEEE</color>
+    <color name="color_boardNum_unfinished">#CECECE</color>
+    <color name="color_boardNum_finished">#6d6d6d</color>
+    <color name="color_boardNum_finished1">#525552</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_path_tab">#F1F1F1</color>
+    <color name="color_pressed">#EAEAEA</color>
+    <color name="color_snow">#FAFAFA</color>
+    <color name="color_red">#FF0000</color>
+    <color name="color_holo_red_light">#FF4444</color>
+    <color name="color_holo_blue_light">#33B5E5</color>
+    <color name="color_copied">#E0FFFF</color>
+    <color name="color_selected">#E2FBE2</color>
+    <color name="color_selected1">#D0FBD0</color>
+</resources>

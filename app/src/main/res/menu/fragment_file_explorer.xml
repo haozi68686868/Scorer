@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/title_confirm"
+        android:id="@+id/menu_item_check"
+        android:icon="@drawable/ic_menu_check"
+        app:showAsAction="always"
+        />
+    <item
+        android:title="@string/title_paste"
+        android:id="@+id/menu_item_paste"
+        android:icon="@drawable/ic_menu_paste"
+        app:showAsAction="always"
+        />
+    <item
+        android:title="@string/title_new_folder"
+        android:id="@+id/menu_item_new_folder"
+        android:icon="@drawable/ic_menu_new_folder"
+        app:showAsAction="always"
+        />
+</menu>

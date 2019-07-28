@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+
+        <TextView
+            android:text="@string/title_Num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_Hands_num"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:text="@string/string_open_room"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_open_result"
+            android:layout_weight="4.5"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+
+        <TextView
+            android:text="@string/string_closed_room"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_closed_result"
+            android:layout_weight="4.5"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"
+            />
+        <TextView
+            android:visibility="gone"
+            android:text="@string/title_difference"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_score_difference"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+        <TextView
+            android:text="@string/title_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_home_score"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+        <TextView
+            android:text="@string/title_away"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/list_title_away_score"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@color/item_background"/>
+    </LinearLayout>
+
+    <ImageView
+        android:contentDescription="@string/title_contract"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/split_separator"
+        android:id="@+id/imageView_separator"/>
+
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/team_result_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+
+
+        <TextView
+            android:text="20 (60 imp) "
+            android:padding="12dp"
+            android:background="@android:color/holo_blue_light"
+            android:textSize="20sp"
+            android:textColor="@color/color_white"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewHomeVp"
+            android:layout_weight="20"/>
+
+        <TextView
+            android:text="0 (0 imp)"
+            android:padding="12dp"
+            android:textColor="@color/color_white"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:background="@android:color/holo_red_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAwayVp"
+            android:layout_weight="0"/>
+    </LinearLayout>
+</LinearLayout>

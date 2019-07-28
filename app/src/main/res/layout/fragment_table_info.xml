@@ -1,0 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+             tools:context="com.blacktec.think.scorer.TableInfoFragment">
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:hint="@string/hint_NS_team_name"
+            android:singleLine="true"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="24sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView_nsTeam"
+            android:layout_weight="4"
+            android:background="@null"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/string_versus"
+                android:textSize="20sp"
+                android:gravity="center_horizontal|bottom"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:id="@+id/textView7"
+                android:textStyle="normal|bold|italic"/>
+
+            <TextView
+                android:textColor="@color/colorPrimaryLight"
+                android:gravity="center_horizontal|top"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/textViewDate"/>
+
+
+        </LinearLayout>
+
+        <AutoCompleteTextView
+            android:hint="@string/hint_EW_team_name"
+            android:singleLine="true"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="24sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView_ewTeam"
+            android:layout_weight="4"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/divider_grey"
+        android:id="@+id/imageView2"/>
+
+    <AutoCompleteTextView
+        android:layout_margin="16dp"
+        android:hint="@string/hint_N_player_name"
+        android:singleLine="true"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditText_N_player"
+        android:background="@null"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:layout_margin="16dp"
+            android:hint="@string/hint_W_player_name"
+            android:singleLine="true"
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EditText_W_player"
+            android:background="@null"/>
+
+        <FrameLayout
+            android:layout_gravity="center"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:background="@drawable/table_square_players">
+
+            <TextView
+                android:text="@string/title_N"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"/>
+
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="@string/title_W"
+                android:gravity="start"
+                android:layout_gravity="center_vertical|start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"/>
+
+            <TextView
+                android:layout_margin="10dp"
+                android:text="@string/title_E"
+                android:gravity="end"
+                android:layout_gravity="center_vertical|end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"/>
+
+            <TextView
+                android:text="@string/title_S"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"/>
+        </FrameLayout>
+        <AutoCompleteTextView
+            android:layout_margin="16dp"
+            android:hint="@string/hint_E_player_name"
+            android:singleLine="true"
+            android:gravity="start"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EditText_E_player"
+            android:background="@null"/>
+    </LinearLayout>
+    <AutoCompleteTextView
+        android:layout_margin="16dp"
+        android:hint="@string/hint_S_player_name"
+        android:singleLine="true"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/EditText_S_player"
+        android:background="@null"/>
+
+    <RadioGroup
+        android:id="@+id/RadioGroup_isOpen"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <RadioButton
+            android:padding="10dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/string_open_room"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/RadioBtnOpenRoom"
+            android:layout_weight="1"/>
+
+        <RadioButton
+            android:padding="10dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:text="@string/string_closed_room"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/RadioBtnClosedRoom"
+            android:layout_weight="1"/>
+    </RadioGroup>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/divider_grey_slim"
+        android:id="@+id/imageView3"/>
+
+
+
+    <Button
+        android:layout_margin="32dp"
+        android:background="@color/colorPrimaryLight"
+        android:textColor="@android:color/white"
+        android:text="@string/title_ok"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonChangeInfo"/>
+
+</LinearLayout>

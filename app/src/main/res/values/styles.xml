@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:listDivider">@drawable/divider</item>
+        <item name="android:textColorHint">#AAAAAA</item>
+
+        <item name="textAppearanceLargePopupMenu">@style/myPopupMenuTextAppearanceLarge</item>
+        <item name="textAppearanceSmallPopupMenu">@style/myPopupMenuTextAppearanceSmall</item>
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+        <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="popupMenuStyle">@style/Mypopupmenu</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:popupBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="OverflowButtonStyle" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_menu_plus</item>
+    </style>
+
+    <style name="Mypopupmenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="overlapAnchor">true</item>
+    </style>
+
+    <style name="myPopupMenuTextAppearanceSmall" parent="TextAppearance.AppCompat.Widget.PopupMenu.Small">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="myPopupMenuTextAppearanceLarge" parent="TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="MyPopupMenu_non_overlap" parent="Widget.AppCompat.PopupMenu">
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <style name="TabStyle" parent="TextAppearance.Design.Tab">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ced2ec</item>
+    </style>
+
+</resources>
