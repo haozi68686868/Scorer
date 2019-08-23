@@ -1,6 +1,7 @@
 package com.blacktec.think.scorer;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,6 +28,8 @@ import android.widget.Toast;
 
 import com.bigkoo.pickerview.BridgePickerData.BGOp;
 import com.bigkoo.pickerview.BridgePickerView;
+import com.blacktec.think.scorer.Interface.BluetoothConnectedTask;
+import com.blacktec.think.scorer.Interface.BluetoothDataSend;
 import com.blacktec.think.scorer.Utils.FileIOUtils;
 import com.blacktec.think.scorer.Utils.RecyclerViewDivider;
 import com.blacktec.think.scorer.Utils.SpannableStringUtils;
@@ -34,6 +37,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -58,6 +62,8 @@ public class ResultListFragment extends Fragment {
     private static final int REQUEST_FILE_BY_SYSTEM = 1;
     private static final int REQUEST_FILE_SAVE = 10;
     private static final int REQUEST_FILE_IMPORT = 20;
+    private static final int REQUEST_BLUETOOTH_OPEN_SERVER = 100;
+    private static final int REQUEST_BLUETOOTH_OPEN_CLIENT = 101;
 
     private Gson gson;
 
@@ -143,6 +149,43 @@ public class ResultListFragment extends Fragment {
         if (resultCode != Activity.RESULT_OK) return;
         File file;
         switch (requestCode) {
+            case REQUEST_BLUETOOTH_OPEN_SERVER:
+                new BluetoothDialog(new BluetoothConnectedTask() {
+                    @Override
+                    public void connected() {
+                        Intent intentFile = new Intent(getActivity(),FileReceiveActivity.class);
+                        Bundle data = new Bundle();
+                        data.putSerializable(FileReceiveFragment.ARG_EXPLORE_TASK,FileExplorerTask.File_Receive);
+                        intentFile.putExtras(data);
+                        startActivityForResult(intentFile,REQUEST_FILE_IMPORT);
+                    }
+                }).waitingForConnection(getActivity());
+                break;
+            case REQUEST_BLUETOOTH_OPEN_CLIENT:
+//                BlueToothSearchingDialog BTSearchingDialog=
+//                        new BlueToothSearchingDialog.Builder(getActivity())
+//                                .create();
+//                BTSearchingDialog.show();
+                BluetoothSearchingDialog BTSearchingDialog = new BluetoothSearchingDialog(getActivity());
+                BTSearchingDialog.setDataSendDialog(new String[]{"仅发送该桌", "发送队式计分表"}, new BluetoothDataSend() {
+                    @Override
+                    public String getData(int which) {
+                        BridgeJsonFile jsonFile=null;
+                        switch (which)
+                        {
+                            case 0:
+                                jsonFile= BridgeJsonFile.createdByResultSheet(mResultSheet);
+                                break;
+                            case 1:
+                                jsonFile= BridgeJsonFile.createdByTeamResultSheet(mResultSheet.getParentSheet());
+                                break;
+                        }
+                        if(jsonFile==null)return null;
+                        return gson.toJson(jsonFile);
+                    }
+                });
+                BTSearchingDialog.show();
+                break;
             case REQUEST_FILE_BY_SYSTEM:
                 Uri uri = data.getData();//得到uri，后面就是将uri转化成file的过程。
             /*String[] proj = {MediaStore.Images.Media.DATA};
@@ -276,9 +319,11 @@ public class ResultListFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intentFile;
         final Bundle data;
+        AlertDialog.Builder alertDialog;
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.menu_item_table_info:
-                Intent intent = BridgeTableInfoActivity.newIntent(getActivity(),mResultSheet.getID());
+                intent = BridgeTableInfoActivity.newIntent(getActivity(),mResultSheet.getID());
                 startActivity(intent);
                 return true;
             case R.id.menu_item_setting:
@@ -291,6 +336,36 @@ public class ResultListFragment extends Fragment {
                 return true;
             case R.id.menu_item_hands_set:
                 Hands_Set_Dialog();
+                return true;
+            case R.id.menu_item_receive_send:
+                alertDialog = new AlertDialog.Builder(getActivity());
+                alertDialog.setItems(new String[]{"蓝牙接收(server)", "蓝牙发送(client)","查看已收到的数据"}, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent;
+                        switch (which)
+                        {
+                            case 0:
+                                intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                                startActivityForResult(intent,REQUEST_BLUETOOTH_OPEN_SERVER);
+                                //BlueToothDialog.waitingForConnection(getActivity());
+                                break;
+                            case 1:
+                                intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                                startActivityForResult(intent,REQUEST_BLUETOOTH_OPEN_CLIENT);
+                                break;
+                            case 2:
+                                intent = new Intent(getActivity(),FileReceiveActivity.class);
+                                Bundle data = new Bundle();
+                                data.putSerializable(FileReceiveFragment.ARG_EXPLORE_TASK,FileExplorerTask.Ask_for_file);
+                                intent.putExtras(data);
+                                startActivityForResult(intent,REQUEST_FILE_IMPORT);
+                                break;
+                        }
+                    }
+                });
+                alertDialog.create().show();
+
                 return true;
             case R.id.menu_item_import:
                 intentFile = new Intent(getActivity(),FileExplorerActivity.class);
@@ -333,7 +408,7 @@ public class ResultListFragment extends Fragment {
                     return true;
                 }
                 final Intent intentSaveFile = intentFile;
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                alertDialog = new AlertDialog.Builder(getActivity());
                 alertDialog.setItems(new String[]{"保存队式成绩单", "仅保存该桌"}, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -382,13 +457,14 @@ public class ResultListFragment extends Fragment {
                 new AlertDialog.Builder(getActivity())
                         .setTitle("关于")
                         .setMessage("Scorer\n" +
-                                "version:0.1.1（XJTU内测）\n" +
+                                "version:0.2.0（XJTU内测）\n" +
                                 "西安交通大学棋牌协会桥牌部内部使用\n" +
-                                "©2017-2018 Black-Tech Studio of Sleeping Pope. All rights reserved.\n" +
+                                "©2015-2019 Black-Tech Studio of Sleeping Pope. All rights reserved.\n" +
                                 "教皇黑科技工作室 版权所有\n\n" +
                                 "功能简介：\n" +
                                 "1.队式、单桌计分表(保存、导入、合并)\n" +
                                 "2.文件管理器\n" +
+                                "3.蓝牙发送/接收结果\n" +
                                 "其余功能敬请期待~有任何功能期望请直接告诉我" )
                         .setPositiveButton(R.string.title_confirm,null).setCancelable(true).create().show();
                 return true;

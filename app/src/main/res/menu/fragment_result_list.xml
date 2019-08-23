@@ -28,6 +28,12 @@
         app:showAsAction="never"
         />
     <item
+        android:title="@string/title_receive_send"
+        android:id="@+id/menu_item_receive_send"
+        android:icon="@drawable/ic_menu_bluetooth"
+        app:showAsAction="never"
+        />
+    <item
         android:title="\t\t文件管理器"
         android:id="@+id/menu_item_open"
         android:icon="@drawable/ic_menu_open"

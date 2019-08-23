@@ -232,7 +232,6 @@ public class FileExplorerFragment extends Fragment implements FragmentBackHandle
             }
         }
         mCatalogShown = getResources().getString(R.string.string_catalog);
-
     }
 
 

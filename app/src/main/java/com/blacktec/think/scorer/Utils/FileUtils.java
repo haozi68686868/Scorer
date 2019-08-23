@@ -624,4 +624,22 @@ public class FileUtils {
         return moveFolder(new File(src), new File(dst), DEFAULT_AUTO_CREATE_DIRECTORY);
     }
 
+    /**
+     * @param bytes
+     * @return
+     */
+    public static String getFileSizeString(long bytes) {
+        final String[] units = new String[]{"B", "KB", "MB", "GB", "TB", "PB", "EB"};
+        int digitGroup = 0;
+        long unit = 1024;
+        if (bytes <= 0) return "0 B";
+        while (bytes > unit) {
+            unit <<= 10;
+            digitGroup++;
+        }
+        unit >>= 10;
+        float f = (float) bytes / unit;
+        return String.format(f > 100 ? "%.0f %s" : (f > 10 ? "%.1f %s" : "%.2f %s"), f, units[digitGroup]);
+    }
+
 }

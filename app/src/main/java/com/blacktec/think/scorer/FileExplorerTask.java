@@ -8,5 +8,6 @@ public enum FileExplorerTask {
     Normal_Explore,
     Ask_for_file,
     Ask_for_folder,
-    Bridge_File_Saving
+    Bridge_File_Saving,
+    File_Receive
 }

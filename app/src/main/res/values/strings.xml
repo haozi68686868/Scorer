@@ -16,6 +16,7 @@
     <string name="title_table_info">\t\t牌桌信息</string>
     <string name="title_table_more">\t\t更多</string>
     <string name="title_import">\t\t导入</string>
+    <string name="title_receive_send">\t\t接收 / 发送</string>
     <string name="string_import">导入</string>
     <string name="title_open">\t\t打开</string>
     <string name="title_save">\t\t保存</string>
@@ -55,6 +56,11 @@
     <string name="string_SDCard">SD卡</string>
     <string name="string_default_path">默认位置</string>
     <string name="string_catalog">目录</string>
+    <string name="string_received">已接收的数据</string>
+    <string name="string_data_receiving">数据接收中..</string>
+    <string name="string_data_corrupted">数据已损坏</string>
+    <string name="string_fileStatus_done">%1$s 接收完成</string>
+    <string name="string_fileStatus_receiving">%1$s 接收中..%2$d%%</string>
     <string name="string_file_manager">系统文件管理器</string>
     <string name="string_vp_imp">%1$1.2f (%2$d imp)</string>
     <string name="alert_hands_set">即将设定为 %1$d 副牌，%2$s中第%3$d 副牌后存在已保存的结果，删除后将不可恢复，\n是否继续？</string>
