@@ -24,7 +24,7 @@
 
 ##### 基本功能
 
-![Basis Functions](imgs/Basis Functions.png)
+![Basis Functions](imgs/Basis_Functions.png)
 
 ##### 蓝牙通信模块
 
